@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 
 const initialState = {
-    user: {},
+    user: null,
     isAuthenticated: false
 }
 
@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
                 return {
                     ...state,
                     user: action.payload,
-                    isAuthenticated: !!state.isAuthenticated
+                    isAuthenticated: !!action.payload
                 }
             case 'LOGOUT':
                 return {
